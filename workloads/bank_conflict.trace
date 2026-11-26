@@ -1,0 +1,15 @@
+# Bank conflict pattern - addresses targeting the same DRAM bank
+# With 8 banks and 8KB row size, bank stride = 8 * 8192 = 65536 (0x10000)
+# Different rows, same bank → row conflicts
+R 0x00000000
+R 0x00010000
+R 0x00020000
+R 0x00030000
+R 0x00000000
+R 0x00010000
+R 0x00020000
+R 0x00030000
+R 0x00040000
+R 0x00050000
+R 0x00000000
+R 0x00010000

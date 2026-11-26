@@ -1,0 +1,19 @@
+# Row locality pattern - accesses within the same DRAM row
+# All addresses within 8KB (row_size_bytes = 8192)
+# These should produce row-buffer hits after the first access
+R 0x00000000
+R 0x00000008
+R 0x00000010
+R 0x00000018
+R 0x00000020
+R 0x00000100
+R 0x00000200
+R 0x00000400
+R 0x00000800
+R 0x00001000
+R 0x00001800
+R 0x00001F00
+W 0x00000004
+W 0x0000000C
+W 0x00000014
+W 0x0000001C

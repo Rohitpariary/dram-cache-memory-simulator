@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "2026-11-26T10:57:06.359995+00:00",
+  "simulator_binary": "build\\memory_sim.exe",
+  "request_count": 20000,
+  "base_seed": 42,
+  "repeats": 1,
+  "total_planned": 75,
+  "total_succeeded": 75,
+  "total_failed": 0,
+  "csv_output": "results\\experiments.csv",
+  "failures": []
+}

@@ -1,0 +1,18 @@
+# Strided access pattern - stride of 256 bytes
+# May cause cache set conflicts if stride is a multiple of cache size
+R 0x00000000
+R 0x00000100
+R 0x00000200
+R 0x00000300
+R 0x00000400
+R 0x00000500
+R 0x00000600
+R 0x00000700
+R 0x00000800
+R 0x00000900
+R 0x00000A00
+R 0x00000B00
+W 0x00000C00
+W 0x00000D00
+W 0x00000E00
+W 0x00000F00

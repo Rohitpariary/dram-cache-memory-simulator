@@ -1,0 +1,50 @@
+{
+  "description": "Default configuration for the memory simulator",
+  "cache_hierarchy": {
+    "l1": {
+      "capacity_bytes": 32768,
+      "line_size_bytes": 64,
+      "associativity": 8,
+      "hit_latency_cycles": 1,
+      "replacement_policy": "LRU",
+      "write_policy": "WriteBack",
+      "write_allocate_policy": "WriteAllocate"
+    },
+    "l2": {
+      "capacity_bytes": 262144,
+      "line_size_bytes": 64,
+      "associativity": 8,
+      "hit_latency_cycles": 10,
+      "replacement_policy": "LRU",
+      "write_policy": "WriteBack",
+      "write_allocate_policy": "WriteAllocate"
+    }
+  },
+  "dram": {
+    "num_channels": 1,
+    "num_ranks": 1,
+    "num_banks": 8,
+    "num_rows": 32768,
+    "num_cols": 1024,
+    "row_size_bytes": 8192,
+    "tRCD": 14,
+    "tCAS": 14,
+    "tRP": 14,
+    "tRAS": 33,
+    "tRC": 47,
+    "tRRD": 6,
+    "tFAW": 25,
+    "tCCD": 4,
+    "tWR": 16,
+    "tWTR": 8,
+    "tRFC": 350
+  },
+  "workload": {
+    "type": "sequential",
+    "request_count": 10000,
+    "address_space_size": 1048576,
+    "stride": 64,
+    "read_ratio": 0.8,
+    "random_seed": 42
+  }
+}

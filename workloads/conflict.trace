@@ -1,0 +1,20 @@
+# Cache conflict pattern - addresses that map to the same set
+# For a 256-byte cache with 64-byte lines and 4 sets:
+# Set index = (addr >> 6) & 3
+# These all map to set 0, causing conflict misses
+R 0x00000000
+R 0x00000100
+R 0x00000200
+R 0x00000300
+R 0x00000400
+R 0x00000000
+R 0x00000100
+R 0x00000200
+R 0x00000300
+R 0x00000400
+R 0x00000500
+R 0x00000600
+R 0x00000000
+R 0x00000100
+R 0x00000200
+R 0x00000300

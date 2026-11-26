@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON
+      
+      - name: Build
+        run: cmake --build build --config Debug -j$(nproc)
+      
+      - name: Run Tests
+        run: cd build && ctest --output-on-failure -j$(nproc)
+      
+      - name: Run Simulator (smoke test)
+        run: ./build/memory_sim --workload sequential --count 1000 --verbose
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON -G "MinGW Makefiles"
+      
+      - name: Build
+        run: cmake --build build --config Debug
+      
+      - name: Run Tests
+        run: cd build && ctest --output-on-failure
